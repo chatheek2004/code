@@ -1,0 +1,86 @@
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Locate Button centered horizontally -->
+        <Button
+            android:id="@+id/locateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/locate_button_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <!-- Linear Layout to center the Spinners and Filter Button -->
+        <LinearLayout
+            android:id="@+id/spinnerLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/locateButton"
+            android:layout_marginTop="16dp">
+
+            <!-- Age Spinner -->
+            <Spinner
+                android:id="@+id/ageSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/age_range_options" />
+
+            <!-- Gender Spinner -->
+            <Spinner
+                android:id="@+id/genderSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/gender_options" />
+
+            <!-- Filter Button -->
+            <Button
+                android:id="@+id/filterButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_button_text" />
+
+        </LinearLayout>
+
+        <!-- RecyclerView below Spinners and Filter Button -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toBottomOf="@id/spinnerLayout"
+            android:layout_marginTop="16dp" />
+
+        <!-- No Users TextView -->
+        <TextView
+            android:id="@+id/noUsersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_users_nearby"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/spinnerLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:gravity="center"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
